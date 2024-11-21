@@ -1,6 +1,7 @@
 "use server";
 
 const cfSecrets = {
+  env: process.env.CF_SECRET_KEY!,
   alwaysPass: "1x0000000000000000000000000000000AA",
   alwaysFail: "2x0000000000000000000000000000000AA",
   tokenAlreadySpentError: "3x0000000000000000000000000000000AA",
@@ -16,7 +17,8 @@ export async function getCount$() {
 
 export async function increment$(body: { turnstile: string | undefined }) {
   const turnstilePasses = await validateTurnstileToken(
-    cfSecrets.alwaysPass,
+    cfSecrets.env,
+    // cfSecrets.alwaysPass,
     // cfSecrets.alwaysFail,
     // cfSecrets.tokenAlreadySpentError,
     body.turnstile

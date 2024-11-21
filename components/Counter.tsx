@@ -18,6 +18,7 @@ export function WrapperApp() {
 }
 
 const cfKeys = {
+  env: process.env.NEXT_PUBLIC_CF_SITE_KEY!,
   passesVisible: "1x00000000000000000000AA",
   blocksVisible: "2x00000000000000000000AB",
   passesInvisible: "1x00000000000000000000BB",
@@ -60,8 +61,8 @@ function Counter({}) {
       </button>
       <Turnstile
         ref={turnstileRef}
-        options={{}}
-        siteKey={cfKeys.passesVisible}
+        siteKey={cfKeys.env}
+        // siteKey={cfKeys.passesVisible}
         // siteKey={cfKeys.blocksVisible}
         // siteKey={cfKeys.passesInvisible}
         // siteKey={cfKeys.blocksInvisible}

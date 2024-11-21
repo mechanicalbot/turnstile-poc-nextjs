@@ -60,7 +60,12 @@ function Counter({}) {
         Count: {count}
       </button>
       <Turnstile
-        ref={turnstileRef}
+        ref={(ref) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          turnstileRef.current = ref as any;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (window as any).turnstileRef = ref;
+        }}
         siteKey={cfKeys.env}
         // siteKey={cfKeys.passesVisible}
         // siteKey={cfKeys.blocksVisible}

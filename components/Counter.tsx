@@ -5,7 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { getCount$, increment$ } from "./actions";
 
 export function WrapperApp() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   return (
     <div>
